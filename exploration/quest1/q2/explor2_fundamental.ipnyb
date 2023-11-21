@@ -1,0 +1,95 @@
+import pandas as pd
+
+train = pd.read_csv('~/data/data/bike-sharing-demand/train.csv')
+df = pd.DataFrame(train)
+print(df)
+
+df['datetime'] = pd.to_datetime(df['datetime'])
+
+# 연, 월, 일, 시, 분, 초 컬럼 생성
+df['year'] = df['datetime'].dt.year
+df['month'] = df['datetime'].dt.month
+df['day'] = df['datetime'].dt.day
+df['hour'] = df['datetime'].dt.hour
+df['minute'] = df['datetime'].dt.minute
+df['second'] = df['datetime'].dt.second
+
+# 결과 확인
+print(df)
+
+import seaborn as sns
+import matplotlib.pyplot as plt
+
+# subplot을 활용해서 한 번에 6개의 그래프 함께 시각화하기
+# subplot 생성
+fig, axes = plt.subplots(nrows=2, ncols=3, figsize=(15, 10))
+
+# 각 컬럼에 대한 countplot 그래프 생성
+sns.countplot(x='year', data=df, ax=axes[0, 0])
+sns.countplot(x='month', data=df, ax=axes[0, 1])
+sns.countplot(x='day', data=df, ax=axes[0, 2])
+sns.countplot(x='hour', data=df, ax=axes[1, 0])
+sns.countplot(x='minute', data=df, ax=axes[1, 1])
+sns.countplot(x='second', data=df, ax=axes[1, 2])
+
+# 결과 그래프 출력
+plt.show()
+
+from sklearn.model_selection import train_test_split
+
+# count 값을 맞추고자 하므로, y 변수에 count 컬럼의 데이터 넣기
+X = df[['season','holiday','humidity','workingday','weather','temp','windspeed','year', 'month', 'day', 'hour', 'minute', 'second']]
+y = df['count']
+
+# Train/Test 데이터 분리
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+print(X_train.shape, y_train.shape)
+print(X_test.shape, y_test.shape)
+
+from sklearn.linear_model import LinearRegression
+
+model = LinearRegression()
+model.fit(X_train, y_train)
+predictions = model.predict(X_test)
+predictions
+
+from sklearn.metrics import mean_squared_error
+import numpy as np
+
+# 학습된 모델에 X_test를 입력해서 예측값 출력하기
+# 테스트 데이터에 대한 예측
+y_pred = model.predict(X_test)
+
+# 예측 결과 출력
+print("예측값:", y_pred)
+
+# 모델이 예측한 값과 정답 target 간의 손실함수 값 계산하기
+mse = mean_squared_error(y_test, y_pred)
+
+# mse 값과 함께 rmse 값도 계산하기
+rmse = np.sqrt(mse)
+
+# 결과 출력
+print("평균 제곱 오차(MSE):", mse)
+print("루트 평균 제곱 오차(RMSE):", rmse)
+
+# (7) x축은 temp 또는 humidity로, y축은 count로 예측 결과 시각화하기
+# x축에 X 데이터 중 temp 데이터를, y축에는 count 데이터를 넣어서 시각화하기
+plt.figure(figsize=(20, 6))
+plt.scatter(X_test['temp'], y_test, label="true")
+plt.scatter(X_test['temp'], predictions, label="pred")
+plt.title('Temp vs Count')
+plt.xlabel('Temp')
+plt.ylabel('Count')
+plt.legend()
+plt.show()
+
+# x축에 X 데이터 중 humidity 데이터를, y축에는 count 데이터를 넣어서 시각화하기
+plt.figure(figsize=(20, 6))
+plt.scatter(X_test['humidity'], y_test, label="true")
+plt.scatter(X_test['humidity'], predictions, label="pred")
+plt.title('Humidity vs Count')
+plt.xlabel('Humidity')
+plt.ylabel('Count')
+plt.legend()
+plt.show()
