@@ -1,5 +1,7 @@
 AIFFEL Campus Online Code Peer Review Templete
+
 코더 : 이재영
+
 리뷰어 : 
 
 
@@ -10,14 +12,6 @@ PRT(Peer Review Template)
 퀘스트 문제 요구조건 등을 지칭
 해당 조건을 만족하는 코드를 캡쳐해 근거로 첨부
 
-### 결과
-프로젝트 2의 회귀모델 예측정확도가 기준 이상 높게 나왔는가? :
-<img width="274" alt="image" src="https://github.com/happybin2013/AIFFEL7_Quest/assets/124979889/03b528b6-2b33-4441-a8d3-35074ea177bc">
-    
-시각화 요구사항이 정확하게 이루어졌는가?
-<img width="666" alt="image" src="https://github.com/happybin2013/AIFFEL7_Quest/assets/124979889/2bcafd50-2ae4-482d-b39a-4d5375e2df74">
-<img width="681" alt="image" src="https://github.com/happybin2013/AIFFEL7_Quest/assets/124979889/cb337b31-1335-4a8d-b9f4-31e5ef182ee4">
-
 
 [ ]  **2. 전체 코드에서 가장 핵심적이거나 가장 복잡하고 이해하기 어려운 부분에 작성된
 주석 또는 doc string을 보고 해당 코드가 잘 이해되었나요?
@@ -26,8 +20,7 @@ PRT(Peer Review Template)
 해당 코드가 무슨 기능을 하는지, 왜 그렇게 짜여진건지, 작동 메커니즘이 뭔지 기술.
 주석을 보고 코드 이해가 잘 되었는지 확인
 잘 작성되었다고 생각되는 부분을 캡쳐해 근거로 첨부합니다.
-[ ]  
-3. 에러가 난 부분을 디버깅하여 문제를 “해결한 기록을 남겼거나” 
+[ ]  **3. 에러가 난 부분을 디버깅하여 문제를 “해결한 기록을 남겼거나” 
 ”새로운 시도 또는 추가 실험을 수행”해봤나요?
     
 문제 원인 및 해결 과정을 잘 기록하였는지 확인
@@ -41,8 +34,6 @@ PRT(Peer Review Template)
   배운점과 아쉬운점, 느낀점 등이 기록되어 있는지 확인
 전체 코드 실행 플로우를 그래프로 그려서 이해를 돕고 있는지 확인
 잘 작성되었다고 생각되는 부분을 캡쳐해 근거로 첨부합니다.
-
-<img width="418" alt="image" src="https://github.com/happybin2013/AIFFEL7_Quest/assets/124979889/e4fe9939-8282-4819-b2e8-c4502dc353c5">
 
 
 [ ]  
