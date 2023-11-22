@@ -6,6 +6,7 @@ AIFFEL Campus Online Code Peer Review Templete
 
 
 PRT(Peer Review Template)
+
 [ ]  1. 주어진 문제를 해결하는 완성된 코드가 제출되었나요?
 문제에서 요구하는 최종 결과물이 첨부되었는지 확인
 문제를 해결하는 완성된 코드란 프로젝트 루브릭 3개 중 2개,
